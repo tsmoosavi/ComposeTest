@@ -3,16 +3,15 @@ package com.example.composetest
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.*
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -30,8 +29,8 @@ class MainActivity : ComponentActivity() {
                 // A surface container using the 'background' color from the theme
                 Surface(modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background) {
-
-                    BirthdayGreetingWithText(message = "hi baby", from = "tt")
+                    BirthdayGreetingWithImage("felicitation", "me")
+//                    BirthdayGreetingWithText(message = "hi baby", from = "tt")
 //                    Greeting("tayyebe")
                 }
             }
@@ -64,6 +63,23 @@ fun BirthdayGreetingWithTextPreview() {
 fun Greeting(name: String) {
     Surface(color = Color.Green) {
         Text(text = "My name is $name!", Modifier.padding(24.dp))
+    }
+}
+
+@Composable
+fun  BirthdayGreetingWithImage(message: String, from: String,modifier: Modifier = Modifier){
+val picture = painterResource( R.drawable.androidparty)
+    Box{
+        Image(painter = picture, contentDescription = null)
+                            BirthdayGreetingWithText(message = "hi baby", from = "tt")
+    }
+}
+@Preview
+@Composable
+fun BirthdayGreetingWithImagePreview(){
+    ComposeTestTheme {
+        BirthdayGreetingWithImage(message ="hi", from = "me" )
+
     }
 }
 
