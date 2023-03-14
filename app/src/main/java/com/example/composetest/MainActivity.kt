@@ -66,6 +66,7 @@ fun Greeting(name: String) {
     }
 }
 
+
 @Composable
 fun  BirthdayGreetingWithImage(message: String, from: String,modifier: Modifier = Modifier){
 val picture = painterResource( R.drawable.androidparty)
