@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">ComposeTest</string>
+    <string name="Happy_BirthDay_bestie">Happy BirthDay bestie</string>
+    <string name="signature_text">\" - from Emma\"</string>
 </resources>

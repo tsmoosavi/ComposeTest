@@ -14,14 +14,12 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.layout.HorizontalAlignmentLine
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.composetest.ui.theme.ComposeTestTheme
-import org.intellij.lang.annotations.JdkConstants.HorizontalAlignment
 
 
 class MainActivity : ComponentActivity() {
@@ -46,9 +44,10 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun BirthdayGreetingWithText(modifier: Modifier = Modifier, message: String, from: String) {
     Surface(color = Color.Red) {
-        Column(modifier = modifier.background(color = Color.Magenta),verticalArrangement = Arrangement.Center, horizontalAlignment = Alignment.CenterHorizontally) {
-            Text(text = message, fontSize = 36.sp, modifier = Modifier.padding(20.dp))
-            Text(text = from, fontSize = 24.sp, modifier = Modifier.padding(10.dp))
+        Column(modifier = modifier.background(color = Color.Magenta),verticalArrangement = Arrangement.Top, horizontalAlignment = Alignment.CenterHorizontally) {
+            Text(text = message, fontSize = 16.sp, modifier = Modifier.padding(bottom = 5.dp, top = 30.dp))
+            Text(text = from, fontSize = 24.sp, modifier = Modifier.padding(10.dp).align(alignment = Alignment.End).background(
+                Color.Green))
         }
     }
 }
@@ -58,7 +57,8 @@ fun BirthdayGreetingWithText(modifier: Modifier = Modifier, message: String, fro
 @Composable
 fun BirthdayGreetingWithTextPreview() {
     ComposeTestTheme {
-        BirthdayGreetingWithText(message = "Happy BirthDay bestie", from = " - from Emma")
+        BirthdayGreetingWithText(message = stringResource(R.string.Happy_BirthDay_bestie), from = stringResource(
+                    R.string.signature_text))
 
     }
 
